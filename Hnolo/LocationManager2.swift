@@ -1,14 +1,15 @@
 //
-//  LocationManager.swift
+//  LocationManager2.swift
 //  Hnolo
 //
-//  Created by Mayur Kant Tyagi on 25/03/25.
+//  Created by Mayur Tyagi on 25/03/25.
 //
+
 import CoreLocation
 import UIKit
 
-class LocationManager: NSObject {
-    static let shared = LocationManager()
+class LocationManager2: NSObject {
+    static let shared = LocationManager2()
     var locationManager = CLLocationManager()
     
     private override init(){
@@ -18,21 +19,23 @@ class LocationManager: NSObject {
     
     func startUpdatingLocation() {
         locationManager.requestAlwaysAuthorization()
-        locationManager.allowsBackgroundLocationUpdates = true
+//        locationManager.allowsBackgroundLocationUpdates = true
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.startMonitoringSignificantLocationChanges()
+        locationManager.startUpdatingLocation()
     }
     
     func stopupdateLocation() {
-        locationManager.stopMonitoringSignificantLocationChanges()
+        locationManager.stopUpdatingLocation()
     }
 }
 
-extension LocationManager: CLLocationManagerDelegate{
+extension LocationManager2: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.forEach { location in
             print(location)
+            print("-------------------------------------------------")
         }
     }
 }
+

@@ -2,7 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyn-5T-ffI">
-                                <rect key="frame" x="131.33333333333337" y="408.66666666666669" width="130.66666666666663" height="35"/>
+                                <rect key="frame" x="131.33333333333337" y="688" width="130.66666666666663" height="35"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="lmN-zH-yKM"/>
@@ -30,7 +32,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Q2-HP-cvl">
-                                <rect key="frame" x="132" y="493.66666666666669" width="129.33333333333337" height="35.000000000000057"/>
+                                <rect key="frame" x="132" y="773" width="129.33333333333337" height="35"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Rdk-JN-gGy"/>
@@ -43,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbV-gt-g9l">
-                                <rect key="frame" x="149.33333333333334" y="323.66666666666669" width="94.666666666666657" height="35"/>
+                                <rect key="frame" x="149.33333333333334" y="603" width="94.666666666666657" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Ily-Si-0aZ"/>
                                 </constraints>
@@ -53,19 +55,42 @@
                                     <action selector="getSinglePoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WD3-0t-0Xm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvu-LS-aYm">
+                                <rect key="frame" x="145.33333333333334" y="521.33333333333337" width="102.66666666666666" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="pUZ-Ll-Zej"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Stop Point"/>
+                                <connections>
+                                    <action selector="getSinglePoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cHp-C7-4tD"/>
+                                    <action selector="stopSinglePoint:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FAG-6Z-npB"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjY-Zu-HAb">
+                                <rect key="frame" x="0.0" y="58.999999999999972" width="393" height="452.33333333333326"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="yjY-Zu-HAb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="2DM-G4-eRM"/>
                             <constraint firstItem="VbV-gt-g9l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Cff-a6-yRd"/>
                             <constraint firstItem="3Q2-HP-cvl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EPo-30-fdE"/>
-                            <constraint firstItem="lyn-5T-ffI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="My6-ZR-O2p"/>
+                            <constraint firstItem="yjY-Zu-HAb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="GSh-5K-ob4"/>
+                            <constraint firstItem="Jvu-LS-aYm" firstAttribute="top" secondItem="yjY-Zu-HAb" secondAttribute="bottom" constant="10" id="JRw-kk-KBp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yjY-Zu-HAb" secondAttribute="trailing" id="ZVB-07-Vah"/>
+                            <constraint firstItem="Jvu-LS-aYm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aew-34-S20"/>
                             <constraint firstItem="lyn-5T-ffI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hZY-01-NXk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Q2-HP-cvl" secondAttribute="bottom" constant="10" id="oht-Qw-eti"/>
+                            <constraint firstItem="VbV-gt-g9l" firstAttribute="top" secondItem="Jvu-LS-aYm" secondAttribute="bottom" constant="46.666666666666686" id="sKs-ew-RYv"/>
                             <constraint firstItem="3Q2-HP-cvl" firstAttribute="top" secondItem="lyn-5T-ffI" secondAttribute="bottom" constant="50" id="sUP-ii-rbc"/>
                             <constraint firstItem="lyn-5T-ffI" firstAttribute="top" secondItem="VbV-gt-g9l" secondAttribute="bottom" constant="50" id="tPC-OS-cG3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="yjY-Zu-HAb" id="JRL-Wj-CuE"/>
                         <outlet property="singlePointBtn" destination="VbV-gt-g9l" id="HvK-ZQ-hc5"/>
                         <outlet property="startBtn" destination="lyn-5T-ffI" id="dES-Mw-vVW"/>
                         <outlet property="stopBtn" destination="3Q2-HP-cvl" id="YlC-Fa-WI6"/>
