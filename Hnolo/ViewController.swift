@@ -10,7 +10,6 @@ import MapKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var singlePointBtn: UIButton!
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var stopBtn: UIButton!
@@ -18,10 +17,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mapView.showsUserLocation = true
         
     }
 
+    @IBAction func listNavigationPressed(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ListVC") as! ListVC
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     @IBAction func getSinglePoint(_ sender: Any) {
         LocationManager2.shared.startUpdatingLocation()
     }

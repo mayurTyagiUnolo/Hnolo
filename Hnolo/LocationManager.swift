@@ -19,8 +19,6 @@ class LocationManager: NSObject {
     func startUpdatingLocation() {
         locationManager.requestAlwaysAuthorization()
         locationManager.allowsBackgroundLocationUpdates = true
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startMonitoringSignificantLocationChanges()
     }
     
@@ -33,6 +31,7 @@ extension LocationManager: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         locations.forEach { location in
             print(location)
+            SomeThingCDHelper.shared.saveBeat(lat: String(location.coordinate.latitude), lon: String(location.coordinate.longitude), date: Date(), id: UUID().uuidString)
         }
     }
 }
